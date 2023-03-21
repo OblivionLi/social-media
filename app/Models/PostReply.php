@@ -52,7 +52,7 @@ class PostReply extends Model
      */
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany(PostLike::class, 'likes');
+        return $this->belongsToMany(PostReplyLikes::class, 'likes');
     }
 
     public function getImageAttribute()

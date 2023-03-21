@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('interests', function (Blueprint $table) {
+        Schema::create('news_comment_likes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->boolean('is_like');
             $table->timestamps();
+
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('comment_id')->constrained('news_comments')->onDelete('cascade');
         });
     }
 
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('interests');
+        Schema::dropIfExists('news_comment_likes');
     }
 };

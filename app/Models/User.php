@@ -29,6 +29,8 @@ class User extends Authenticatable
         'country',
         'city',
         'bio',
+        'hide_email',
+        'hide_age'
     ];
 
     /**
@@ -120,5 +122,45 @@ class User extends Authenticatable
     public function likes(): BelongsToMany
     {
         return $this->belongsToMany(Post::class, 'likes');
+    }
+
+    /**
+     * Get the news for the user
+     */
+    public function news(): HasMany
+    {
+        return $this->hasMany(News::class);
+    }
+
+    /**
+     * Get the news comments for the user
+     */
+    public function newsComments(): HasMany
+    {
+        return $this->hasMany(NewsComment::class);
+    }
+
+    /**
+     * Get the likes for the user
+     */
+    public function newsCommentLikes(): BelongsToMany
+    {
+        return $this->belongsToMany(NewsCommentLike::class, 'news_comment_likes');
+    }
+
+    /**
+     * Get the likes for the user
+     */
+    public function newsLikes(): BelongsToMany
+    {
+        return $this->belongsToMany(NewsLike::class, 'news_likes');
+    }
+
+    /**
+     * Get the likes for the user
+     */
+    public function postReplyLikes(): BelongsToMany
+    {
+        return $this->belongsToMany(PostReplyLikes::class, 'post_reply_likes');
     }
 }
