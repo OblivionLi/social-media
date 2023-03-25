@@ -17,15 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('first_name', 50)->nullable(false);
-            $table->string('last_name', 50)->nullable(false);
-            $table->int('age');
-            $table->string('country', 50);
-            $table->string('city', 50);
-            $table->text('bio')->nullable();
-            $table->boolean('hide_email')->default(false);
-            $table->boolean('hide_age')->default(false);
             $table->rememberToken();
+            $table->foreignId('current_team_id')->nullable();
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
     }
