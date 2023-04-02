@@ -13,8 +13,15 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Montserrat', 'Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                redPantone: '#E63946',
+                honeydrew: '#F1FAEE',
+                nonPhotoBlue: '#A8DADC',
+                cerulean: '#457B9D',
+                berkeleyBlue: '#1D3557',
+            }
         },
     },
 

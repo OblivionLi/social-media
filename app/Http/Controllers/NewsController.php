@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
+use Inertia\Inertia;
 
 class NewsController extends Controller
 {
@@ -13,7 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('News');
     }
 
     /**

@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <template #main>
-            <p>main content inside welcome page</p>
+            <p>main content inside news page</p>
         </template>
     </Layout>
 </template>
