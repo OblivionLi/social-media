@@ -5,10 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
+use App\Repositories\News\NewsRepositoryInterface;
 use Inertia\Inertia;
 
 class NewsController extends Controller
 {
+    private $newsRepository;
+
+    public function __construct(NewsRepositoryInterface $newsRepository)
+    {
+        $this->newsRepository = $newsRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */
