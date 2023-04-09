@@ -2,7 +2,10 @@
     <Layout>
         <template #main>
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <Pagination :links="news.links" />
+                <div class="flex flex-wrap items-center justify-between">
+                    <SearchResults />
+                    <Pagination :links="news.links" class="mt-0"/>
+                </div>
                 <div class="flex flex-wrap gap-4 lg:gap-8 xl:gap-12 py-6">
                     <div v-for="item in news.data" :key="item.id" class="max-w-sm mx-auto">
                         <div class="shadow-md rounded-md overflow-hidden hover:shadow-lg transition-all duration-300">
@@ -34,10 +37,13 @@
 <script setup>
     import Layout from '@/Layouts/Public/Layout.vue';
     import Pagination from '@/Components/Pagination.vue';
+    import SearchResults from '@/Components/SearchResults.vue';
 
     const props = defineProps({
         news: Object
     });
+
+
 
 </script>
 

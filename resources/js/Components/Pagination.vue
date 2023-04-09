@@ -1,5 +1,5 @@
 <template>
-    <div v-if="links.length > 3" class="flex justify-center mt-4 space-x-4">
+    <div v-if="links.length > 3" class="flex items-center justify-center mt-4 space-x-4">
         <Link
             v-for="(link, k) in limitedLinks"
             :key="k"

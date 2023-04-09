@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use App\Models\News;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
+use App\Http\Requests\News\IndexNewsRequest;
 use App\Repositories\News\NewsRepositoryInterface;
-use Inertia\Inertia;
 
 class NewsController extends Controller
 {
@@ -20,10 +21,15 @@ class NewsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(IndexNewsRequest $request)
     {
+        $validated = $request->validated();
+
+        $search = $validated['search'] ?? null;
+        $filters = $validated['filters'] ?? null;
+
         return Inertia::render('News', [
-            'news' => $this->newsRepository->getAllWithPaginate(2)
+            'news' => $this->newsRepository->getAllWithFilters($search, $filters)
         ]);
     }
 
