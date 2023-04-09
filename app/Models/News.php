@@ -44,9 +44,9 @@ class News extends Model
     /**
      * Get the likes for the news
      */
-    public function likes(): BelongsToMany
+    public function likes(): hasMany
     {
-        return $this->belongsToMany(NewsLike::class, 'news_likes');
+        return $this->hasMany(NewsLike::class);
     }
 
     /**

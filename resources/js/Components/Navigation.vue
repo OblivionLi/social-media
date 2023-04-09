@@ -18,7 +18,7 @@
     import { Link } from '@inertiajs/vue3';
 </script>
 
-<style>
+<style scoped>
     a.active-link {
         text-transform: uppercase;
         color: #00B4D8;

@@ -16,6 +16,11 @@ class EloquentNewsRepository implements NewsRepositoryInterface
         return News::all();
     }
 
+    public function getAllWithPaginate(int $limitPerPage)
+    {
+        return News::with(['user', 'category', 'likes'])->paginate($limitPerPage);
+    }
+
     public function create($data)
     {
         return News::create($data);

@@ -22,7 +22,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return Inertia::render('News');
+        return Inertia::render('News', [
+            'news' => $this->newsRepository->getAllWithPaginate(2)
+        ]);
     }
 
     /**

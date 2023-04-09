@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace App\Repositories;
 
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\News\EloquentNewsRepository;

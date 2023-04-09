@@ -14,9 +14,7 @@
             <Navigation />
         </header>
 
-        <!-- <div class="border-l border-gray-400 absolute inset-y-0 left-0 transform -translate-x-full transition duration-200 ease-in-out md:relative md:translate-x-0"></div> -->
-
-        <main class="flex flex-grow shadow-2xl rounded-lg">
+        <main class="flex flex-grow rounded-lg md:ml-72">
             <slot name="main" />
         </main>
     </div>
@@ -28,20 +26,19 @@
 <script setup>
     import Navigation from '@/Components/Navigation.vue';
     import { Link } from '@inertiajs/vue3';
-</script>
 
-<script>
-    export default {
-        methods: {
-            toggleSidebar(event) {
-                this.$refs.sidebar.classList.toggle("-translate-x-full");
-            }
-        }
+    function toggleSidebar(event) {
+        this.$refs.sidebar.classList.toggle("-translate-x-full");
     }
 </script>
 
-<style>
+<style scoped>
     .navigation {
         background-color: #F1FAEE;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        bottom: 0;
+        overflow-y: auto;
     }
 </style>
