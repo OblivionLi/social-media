@@ -3,7 +3,7 @@
         <template #main>
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap items-center justify-between">
-                    <SearchResults />
+                    <SearchNewsResults />
                     <Pagination :links="news.links" class="mt-0"/>
                 </div>
                 <div class="flex flex-wrap gap-4 lg:gap-8 xl:gap-12 py-6">
@@ -18,10 +18,11 @@
                                 <a href="#" class="block mt-1 text-lg leading-tight font-medium text-gray-800 hover:text-cerulean transition-colors duration-300 truncate h-12 overflow-hidden">{{ item.title }}</a>
                                 <p class="mt-2 text-gray-500 overflow-hidden h-24">{{ item.content }}</p>
                                 <div class="flex justify-between items-center mt-2">
-                                    <div class="text-gray-600 text-sm">Read time: {{ item.reading_time }}</div>
-                                    <div class="text-gray-600 text-sm">Author: {{ item.user.name }}</div>
+                                    <p class="text-gray-600 text-sm">Read time: {{ item.reading_time }}</p>
+                                    <p class="text-gray-600 text-sm">Author: {{ item.user.name }}</p>
                                 </div>
-                                <div class="mt-4 flex justify-end">
+                                <div class="mt-4 flex justify-between items-center">
+                                    <p class="text-gray-600 text-sm">Views: {{ item.views }}</p>
                                     <a href="#" class="bg-cerulean hover:bg-opacity-90 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">Read More</a>
                                 </div>
                             </div>
@@ -37,14 +38,11 @@
 <script setup>
     import Layout from '@/Layouts/Public/Layout.vue';
     import Pagination from '@/Components/Pagination.vue';
-    import SearchResults from '@/Components/SearchResults.vue';
+    import SearchNewsResults from '@/Components/SearchNewsResults.vue';
 
     const props = defineProps({
         news: Object
     });
-
-
-
 </script>
 
 <style scoped>

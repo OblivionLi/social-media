@@ -23,7 +23,7 @@ class IndexNewsRequest extends FormRequest
     {
         return [
             'search' => 'nullable|string|min:0',
-            'filters' => 'nullable|sometimes|array'
+            'filters' => 'nullable|sometimes|string|min:4|max:20'
         ];
     }
 }
