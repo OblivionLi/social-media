@@ -11,6 +11,11 @@ class EloquentNewsRepository implements NewsRepositoryInterface
         return News::find($id);
     }
 
+    public function getBySlug(string $slug)
+    {
+        return News::with(['user', 'category', 'likes'])->whereSlug($slug)->firstOrFail();
+    }
+
     public function getAll(int $limitPerPage = 9)
     {
         return News::with(['user', 'category', 'likes'])->paginate($limitPerPage);
@@ -21,10 +26,6 @@ class EloquentNewsRepository implements NewsRepositoryInterface
         $query = News::with(['user', 'category', 'likes']);
 
         if ($searchTerm) {
-            // $query->where('title', 'like', '%'. $searchTerm .'%')
-            //         ->orWhereHas('user', function($query) use ($searchTerm) {
-            //             $query->where('name', 'like', '%'. $searchTerm .'%');
-            //         });
             $query->where(function($query) use ($searchTerm) {
                 $query->where('title', 'like', '%'. $searchTerm .'%')
                       ->orWhereHas('user', function($query) use ($searchTerm) {

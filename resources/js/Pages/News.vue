@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="mt-4 flex justify-between items-center">
                                     <p class="text-gray-600 text-sm">Views: {{ item.views }}</p>
-                                    <a href="#" class="bg-cerulean hover:bg-opacity-90 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">Read More</a>
+                                    <Link :href="`/news/${item.slug}`" class="bg-cerulean hover:bg-opacity-90 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300">Read More</Link>
                                 </div>
                             </div>
                         </div>
@@ -36,6 +36,7 @@
 </template>
 
 <script setup>
+    import { Link } from '@inertiajs/vue3';
     import Layout from '@/Layouts/Public/Layout.vue';
     import Pagination from '@/Components/Pagination.vue';
     import SearchNewsResults from '@/Components/SearchNewsResults.vue';

@@ -5,6 +5,7 @@ namespace App\Repositories\News;
 interface NewsRepositoryInterface
 {
     public function getById($id);
+    public function getBySlug(string $slug);
     public function getAll();
     public function getAllWithFilters(string $searchTerm = null, string $filter = null, int $limitPerPage = 9);
     public function create($data);

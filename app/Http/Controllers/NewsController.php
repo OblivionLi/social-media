@@ -52,9 +52,11 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(News $news)
+    public function show(string $slug)
     {
-        //
+        return Inertia::render('NewsShow', [
+            'news' => $this->newsRepository->getBySlug($slug)
+        ]);
     }
 
     /**
